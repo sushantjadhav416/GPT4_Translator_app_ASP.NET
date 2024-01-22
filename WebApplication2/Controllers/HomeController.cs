@@ -55,15 +55,15 @@ namespace WebApplication2.Controllers
             var openAPIkey = _configuration["OpenAI:ApiKey"];
 
             //Setup HttpClient with openAI Key
-            _httpClient.DefaultRequestHeaders.Add("Authorization",$"Bearer{openAPIkey}");
+            _httpClient.DefaultRequestHeaders.Add("Authorization",$"Bearer {openAPIkey}");
 
             //Define the request Payload
             var payload = new
             {
                 model = "gpt-4",
-                message = new object[]
+                messages = new object[]
                 {
-                    new { role = "System", content = $"Translate to {selectedLanguage}" },
+                    new { role = "system", content = $"Translate to {selectedLanguage}" },
                     new { role = "user", content = query }
                 },
                 temperature = 0,
@@ -83,7 +83,7 @@ namespace WebApplication2.Controllers
             //Return Response
             var Response = JsonConvert.DeserializeObject<OpenAIResponse>(responseMessageJson);
 
-            ViewBag.Result = Response.choices[0].Message.content;
+            ViewBag.Result = Response.choices[0].Message.Content;
 
 
 
@@ -92,10 +92,6 @@ namespace WebApplication2.Controllers
 
       
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
     }
 }
