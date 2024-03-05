@@ -84,6 +84,7 @@ namespace WebApplication2.Controllers
             var Response = JsonConvert.DeserializeObject<OpenAIResponse>(responseMessageJson);
 
             ViewBag.Result = Response.choices[0].Message.Content;
+
             ViewBag.Languages = new SelectList(MostUsedLanguage);
 
 
