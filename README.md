@@ -9,4 +9,7 @@ This a GPT-4 Powered Translator like GTranslator which build using ASP.NET core 
 - Understanding of OpenAi API keys  .
 
 # Obtaining the API Key
+- To obtain key go to the OpenAi website and do login.
+- go to API keys
+- Generate an API key and copy and add to the congiguration string appsettings.json.
 
