@@ -47,6 +47,11 @@ namespace WebApplication2.Controllers
             ViewBag.Languages = new SelectList(MostUsedLanguage);
             return View();
         }
+        public IActionResult App_Details()
+        {
+           
+            return View();
+        }
 
         public async Task<IActionResult> OpenAIGPT(string query,string selectedLanguage)
         {
